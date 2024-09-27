@@ -61,7 +61,7 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: cmd
       run: |
-        where /r c:\ souffle-compile.py
+        where /r d:\ souffle-compile.py
 
     # # Run the tests, Visual Studio must be in the environment because cl.exe is required for compiled Souffle.
     # - name: Check interpreter
