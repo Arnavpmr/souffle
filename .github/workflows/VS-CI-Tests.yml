@@ -65,7 +65,7 @@ jobs:
     - name: Compile Main (dl)
       working-directory: ${{github.workspace}}
       shell: cmd
-      run: d:/a/souffle/souffle/build/src/souffle.exe -F. -D. -o d:/a/souffle/souffle/compilation/main.exe d:/a/souffle/souffle/compilation/main.dl
+      run: d:/a/souffle/souffle/build/src/souffle.exe -F. -D. -v -o d:/a/souffle/souffle/compilation/main.exe d:/a/souffle/souffle/compilation/main.dl
     
     - name: Upload Compiled Exe
       uses: actions/upload-artifact@v4
