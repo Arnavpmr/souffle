@@ -69,6 +69,7 @@ jobs:
         pushd "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build" & call vcvars64.bat & popd
         d:/a/souffle/souffle/build/src/souffle.exe -F. -D. -od:/a/souffle/souffle/compilation/leakage-algo d:/a/souffle/souffle/compilation/main.dl
         cd d:/a/souffle/souffle/compilation 
+        dir
     
     - name: Upload Compiled Exe
       uses: actions/upload-artifact@v4
