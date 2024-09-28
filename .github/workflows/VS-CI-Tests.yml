@@ -65,13 +65,16 @@ jobs:
     - name: Compile Main (dl)
       working-directory: ${{github.workspace}}
       shell: cmd
-      run: d:/a/souffle/souffle/build/src/souffle.exe -F. -D. -v -o d:/a/souffle/souffle/compilation/main.exe d:/a/souffle/souffle/compilation/main.dl
+      run: |
+        pushd "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build" & call vcvars64.bat & popd
+        d:/a/souffle/souffle/build/src/souffle.exe -F. -D. -od:/a/souffle/souffle/compilation/leakage-algo d:/a/souffle/souffle/compilation/main.dl
+        cd d:/a/souffle/souffle/compilation 
     
     - name: Upload Compiled Exe
       uses: actions/upload-artifact@v4
       with:
         name: leakage-algo
-        path: d:/a/souffle/souffle/compilation/main.exe
+        path: d:/a/souffle/souffle/compilation/leakage-algo.exe
         retention-days: 30
 
     # # Run the tests, Visual Studio must be in the environment because cl.exe is required for compiled Souffle.
